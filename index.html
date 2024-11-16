@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🎮 Multiplication Game</h1>
+            <!-- Modified: Add this line to hide the phrase after difficulty selection -->
+            <p id="intro-text">Choose your difficulty and start learning multiplication!</p>
+        </header>
+
+        <div id="settings">
+            <h2>Select Difficulty:</h2>
+            <button onclick="setDifficulty('easy')">Easy (2-4)</button>
+            <button onclick="setDifficulty('intermediate')">Intermediate (2-7)</button>
+            <button onclick="setDifficulty('advanced')">Advanced (2-12)</button>
+
+            <h2>Or select a custom range:</h2>
+            <label for="minTable">Min Table:</label>
+            <input type="number" id="minTable" value="2" min="2" max="12">
+            <label for="maxTable">Max Table:</label>
+            <input type="number" id="maxTable" value="6" min="2" max="12">
+            <button onclick="startGame()">Start Game</button>
+        </div>
+
+        <div id="gameArea" style="display:none;">
+            <h2 id="question">Loading question...</h2>
+            <div id="options"></div>
+            <div id="feedback"></div>
+            <p>Score: <span id="score">0</span></p>
+            <button id="nextQuestion" onclick="nextQuestion()">Next Question</button>
+            <button onclick="quitGame()">Quit Game</button>
+        </div>
+
+        <div id="endGame" style="display:none;">
+            <h2>Game Over!</h2>
+            <p>Your score: <span id="finalScore">0</span></p>
+            <p>Accuracy: <span id="accuracy">0</span>%</p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
